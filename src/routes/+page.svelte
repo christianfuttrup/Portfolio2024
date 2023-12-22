@@ -7,13 +7,11 @@
 	function handleArrowKeyPress(event: KeyboardEvent) {
 		event.preventDefault();
 		if (event.key === 'ArrowDown') {
-			console.log('down');
 			window.scrollBy({
 				top: window.innerHeight,
 				behavior: 'smooth'
 			});
 		} else if (event.key === 'ArrowUp') {
-			console.log('up');
 			window.scrollBy({
 				top: -window.innerHeight,
 				behavior: 'smooth'

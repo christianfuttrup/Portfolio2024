@@ -18,10 +18,12 @@
 	</p>
 </section>
 
-<div class="absolute bottom-5 left-[50%] right-[50%] text-white">
-	<a on:click={handleArrowClick} href="#projects"
-		><i class="fa-solid fa-chevron-down fa-2x fa-beat"></i></a
-	>
+<div class="absolute bottom-12 left-[50%] right-[50%] text-white">
+	<button
+		on:click={handleArrowClick}
+		class="fa-solid fa-chevron-down fa-2x fa-beat outline-none"
+		aria-label="Scroll down"
+	></button>
 </div>
 
 <Socials />
