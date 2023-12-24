@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, h2, h3, h4, h5, p, span {
-    font-family: 'Playfair Display', serif;
+h1, h2, p, a {
+    font-family: 'Inter', sans-serif;
 }
