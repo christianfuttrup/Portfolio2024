@@ -8,6 +8,7 @@
 
 	import type { PageData } from './$types';
 	import type { SpotifyData } from '$lib/types/spotify';
+	import Timeline from '$lib/widgets/Timeline.svelte';
 
 	export let data: PageData;
 
@@ -46,28 +47,30 @@
 			<Profile />
 		</div>
 		<div
-			class="col-start-3 rounded-[32px] bg-white bg-[url('/japan_trip.png')] bg-cover bg-center p-12"
+			class="col-start-3 rounded-[32px] bg-white bg-[url('/japan_trip.png')] bg-cover bg-center p-8"
 			class:shadow-md={$activeItem === 'about'}
 			class:opacity-30={$activeItem !== 'about' && $activeItem !== 'all'}
 		></div>
-		<div class="col-start-4 row-span-2 rounded-[32px] bg-white p-12">3</div>
+		<div class="col-start-4 row-span-2 rounded-[32px] bg-white p-8">
+			<Timeline />
+		</div>
 		<div
-			class="row-start-2 rounded-[32px] border border-green-200 bg-green-100 p-12"
+			class="row-start-2 rounded-[32px] border border-green-200 bg-green-100 p-8"
 			class:shadow-md={$activeItem === 'media'}
 			class:opacity-30={$activeItem !== 'media' && $activeItem !== 'all'}
 		>
 			<Spotify data={data.props.spotifyData} />
 		</div>
-		<div class="col-span-2 row-start-2 rounded-[32px] bg-white p-12">5</div>
-		<div class="col-span-2 col-start-3 row-start-3 rounded-[32px] bg-white p-12">6</div>
-		<div class="col-start-1 row-span-2 row-start-3 rounded-[32px] bg-white p-12">7</div>
-		<div class="relative col-start-2 row-start-3 rounded-[32px] bg-slate-700 p-12">
-			<Github />
+		<div class="col-span-2 row-start-2 rounded-[32px] bg-white p-8">
+			<Github data={data.props.commitData} />
 		</div>
-		<div class="col-start-2 row-start-4 rounded-[32px] bg-white p-12">9</div>
-		<div class="col-start-3 row-start-4 rounded-[32px] bg-white p-12">10</div>
+		<div class="col-span-2 col-start-3 row-start-3 rounded-[32px] bg-white p-8">6</div>
+		<div class="col-start-1 row-span-2 row-start-3 rounded-[32px] bg-white p-8">7</div>
+		<div class="relative col-start-2 row-start-3 rounded-[32px] bg-white p-8">x</div>
+		<div class="col-start-2 row-start-4 rounded-[32px] bg-white p-8">9</div>
+		<div class="col-start-3 row-start-4 rounded-[32px] bg-white p-8">10</div>
 		<div
-			class="col-start-4 row-start-4 rounded-[32px] bg-white bg-[url('/japan_trip.png')] bg-cover bg-center bg-no-repeat p-12"
+			class="col-start-4 row-start-4 rounded-[32px] bg-white bg-[url('/japan_trip.png')] bg-cover bg-center bg-no-repeat p-8"
 		>
 			<!-- plane emoji -->
 		</div>
