@@ -27,29 +27,27 @@ export const POST: RequestHandler = async () => {
 };
 
 export const GET: RequestHandler = async ({ fetch }) => {
-	const postResponse = await fetch('/api/spotify', { method: 'POST' });
+	let data = {};
 
+	const postResponse = await fetch('/api/spotify', { method: 'POST' });
 	const token = await postResponse.text();
 	const url = 'https://api.spotify.com/v1/me/player/currently-playing';
 	const response = await fetch(url, {
 		headers: {
-			Authorization: `Bearer ${token}}`
+			Authorization: `Bearer ${token}`
 		}
 	});
 
-	if (!response.ok) {
-		if (response.status === 401) {
-			if (!postResponse.ok) {
-				return new Response(JSON.stringify({ error: 'Failed to refresh access token' }), {
-					status: 500
-				});
-			}
-		} else {
-			return new Response('Failed to fetch data', { status: 500 });
-		}
+	// Check if the response is OK and has content
+	if (response.ok && response.status !== 204) {
+		data = await response.json();
+	} else if (response.status === 204) {
+		// Handle no content case
+		data = { message: 'No music is currently playing', active: false };
+	} else {
+		// Handle other types of errors
+		data = { error: await response.text() };
 	}
-
-	const data = await response.json();
 
 	return new Response(JSON.stringify(data), {
 		headers: {

@@ -1,11 +1,12 @@
 export interface SpotifyResponse {
+	active: boolean;
 	url: string;
 	props: {
 		spotifyData: SpotifyData;
 	};
 }
 
-interface SpotifyData {
+export interface SpotifyData {
 	timestamp: number;
 	context: SpotifyContext;
 	progress_ms: number;

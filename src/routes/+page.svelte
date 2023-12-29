@@ -3,26 +3,43 @@
 	import Spotify from '$lib/widgets/Spotify.svelte';
 	import Github from '$lib/widgets/Github.svelte';
 
-	import type { SpotifyResponse } from '$lib/types/spotify';
-	import { onDestroy, onMount } from 'svelte';
-	import { currentSong } from '$lib/stores/stores';
+	import type { PageData } from './$types';
+	import { activeItem } from '$lib/stores/stores';
 
-	export let data: SpotifyResponse;
+	export let data: PageData;
 
 	// Make the current song get fetched live (30 seconds interval)
 </script>
 
 <div class="flex gap-5">
-	<!-- Profile card -->
+	<!-- 
+		TODO: Add functionality to when you click on a card it folds out and shows more details
+		This could be the spotify card showing the album cover and the github card showing the latest commit
+		This can be done with position absolute and placing it in the center of the page
+	-->
 
 	<div class="container mx-auto grid gap-4 lg:grid-cols-4 lg:grid-rows-5">
-		<div class="col-span-2 rounded-3xl bg-blue-50 p-12">
+		<div
+			class="'profile' )} col-span-2 rounded-[32px] border border-blue-100 bg-blue-50
+				p-12
+			transition-transform"
+			class:shadow-xl={$activeItem === 'about'}
+			class:opacity-60={$activeItem !== 'about' && $activeItem !== 'all'}
+		>
 			<Profile />
 		</div>
-		<div class="col-start-3 rounded-[32px] bg-white p-12"></div>
+		<div
+			class="col-start-3 rounded-[32px] bg-white bg-[url('/japan_trip.png')] bg-cover bg-center p-12"
+			class:shadow-xl={$activeItem === 'about'}
+			class:opacity-60={$activeItem !== 'about' && $activeItem !== 'all'}
+		></div>
 		<div class="col-start-4 row-span-2 rounded-[32px] bg-white p-12">3</div>
-		<div class="row-start-2 rounded-[50px] bg-green-100 p-12">
-			<Spotify {data} />
+		<div
+			class="row-start-2 rounded-[32px] border border-green-200 bg-green-100 p-12"
+			class:shadow-xl={$activeItem === 'media'}
+			class:opacity-60={$activeItem !== 'media' && $activeItem !== 'all'}
+		>
+			<Spotify data={data.props.spotifyData} />
 		</div>
 		<div class="col-span-2 row-start-2 rounded-[32px] bg-white p-12">5</div>
 		<div class="col-span-2 col-start-3 row-start-3 rounded-[32px] bg-white p-12">6</div>
@@ -32,6 +49,10 @@
 		</div>
 		<div class="col-start-2 row-start-4 rounded-[32px] bg-white p-12">9</div>
 		<div class="col-start-3 row-start-4 rounded-[32px] bg-white p-12">10</div>
-		<div class="col-start-4 row-start-4 rounded-[32px] bg-white p-12">11</div>
+		<div
+			class="col-start-4 row-start-4 rounded-[32px] bg-white bg-[url('/japan_trip.png')] bg-cover bg-center bg-no-repeat p-12"
+		>
+			<!-- plane emoji -->
+		</div>
 	</div>
 </div>
