@@ -14,7 +14,6 @@
 	});
 
 	function updateActiveItemChip(menuItem: HTMLButtonElement) {
-		console.log(menuItem.clientWidth);
 		activeItemChip.style.width = `${menuItem.clientWidth}px`;
 		activeItemChip.style.left = `${menuItem.offsetLeft + 13}px`;
 
