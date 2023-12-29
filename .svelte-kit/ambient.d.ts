@@ -26,6 +26,11 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const VITE_SPOTIFY_CLIENT_ID: string;
+	export const VITE_SPOTIFY_CLIENT_SECRET: string;
+	export const VITE_SPOTIFY_REFRESH_TOKEN: string;
+	export const VITE_SPOTIFY_CODE: string;
+	export const VITE_SPOTIFY_ACCESS_TOKEN: string;
 	export const ALLUSERSPROFILE: string;
 	export const APPDATA: string;
 	export const CHROME_CRASHPAD_PIPE_NAME: string;
@@ -37,7 +42,7 @@ declare module '$env/static/private' {
 	export const ComSpec: string;
 	export const DriverData: string;
 	export const EDITOR: string;
-	export const EFC_19576: string;
+	export const EFC_21168: string;
 	export const GIT_ASKPASS: string;
 	export const HOME: string;
 	export const HOMEDRIVE: string;
@@ -138,6 +143,11 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		VITE_SPOTIFY_CLIENT_ID: string;
+		VITE_SPOTIFY_CLIENT_SECRET: string;
+		VITE_SPOTIFY_REFRESH_TOKEN: string;
+		VITE_SPOTIFY_CODE: string;
+		VITE_SPOTIFY_ACCESS_TOKEN: string;
 		ALLUSERSPROFILE: string;
 		APPDATA: string;
 		CHROME_CRASHPAD_PIPE_NAME: string;
@@ -149,7 +159,7 @@ declare module '$env/dynamic/private' {
 		ComSpec: string;
 		DriverData: string;
 		EDITOR: string;
-		EFC_19576: string;
+		EFC_21168: string;
 		GIT_ASKPASS: string;
 		HOME: string;
 		HOMEDRIVE: string;

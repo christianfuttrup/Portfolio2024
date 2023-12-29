@@ -1,3 +1,18 @@
 {
-	"/": []
+	"/": [
+		"src/routes/+page.ts",
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/api/spotify": [
+		"src/routes/api/spotify/+server.ts"
+	],
+	"/blog": [
+		"src/routes/blog/+page.ts",
+		"src/routes/+layout.ts"
+	],
+	"/experience": [
+		"src/routes/experience/+page.ts",
+		"src/routes/+layout.ts"
+	]
 }

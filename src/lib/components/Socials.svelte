@@ -1,4 +1,4 @@
-<div class="fa-2x flex gap-5 text-slate-400">
+<div class="fa-2x flex gap-5">
 	<a target="_blank" href="https://github.com/christianfuttrup"
 		><i class="fa-brands fa-github hover:text-white"></i></a
 	>
