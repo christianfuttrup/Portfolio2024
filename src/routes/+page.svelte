@@ -1,14 +1,31 @@
 <script lang="ts">
+	// Components
 	import Profile from '$lib/widgets/Profile.svelte';
 	import Spotify from '$lib/widgets/Spotify.svelte';
 	import Github from '$lib/widgets/Github.svelte';
+	import { activeItem } from '$lib/stores/stores';
+	import { onDestroy, onMount } from 'svelte';
 
 	import type { PageData } from './$types';
-	import { activeItem } from '$lib/stores/stores';
+	import type { SpotifyData } from '$lib/types/spotify';
 
 	export let data: PageData;
 
-	// Make the current song get fetched live (30 seconds interval)
+	let spotifyInterval: NodeJS.Timeout;
+
+	onMount(() => {
+		spotifyInterval = setInterval(() => {
+			fetch('/api/spotify')
+				.then((res) => res.json())
+				.then((res: SpotifyData) => {
+					data.props.spotifyData = res;
+				});
+		}, 30000);
+	});
+
+	onDestroy(() => {
+		clearInterval(spotifyInterval);
+	});
 </script>
 
 <div class="flex gap-5">
@@ -23,21 +40,21 @@
 			class="'profile' )} col-span-2 rounded-[32px] border border-blue-100 bg-blue-50
 				p-12
 			transition-transform"
-			class:shadow-xl={$activeItem === 'about'}
-			class:opacity-60={$activeItem !== 'about' && $activeItem !== 'all'}
+			class:shadow-md={$activeItem === 'about'}
+			class:opacity-30={$activeItem !== 'about' && $activeItem !== 'all'}
 		>
 			<Profile />
 		</div>
 		<div
 			class="col-start-3 rounded-[32px] bg-white bg-[url('/japan_trip.png')] bg-cover bg-center p-12"
-			class:shadow-xl={$activeItem === 'about'}
-			class:opacity-60={$activeItem !== 'about' && $activeItem !== 'all'}
+			class:shadow-md={$activeItem === 'about'}
+			class:opacity-30={$activeItem !== 'about' && $activeItem !== 'all'}
 		></div>
 		<div class="col-start-4 row-span-2 rounded-[32px] bg-white p-12">3</div>
 		<div
 			class="row-start-2 rounded-[32px] border border-green-200 bg-green-100 p-12"
-			class:shadow-xl={$activeItem === 'media'}
-			class:opacity-60={$activeItem !== 'media' && $activeItem !== 'all'}
+			class:shadow-md={$activeItem === 'media'}
+			class:opacity-30={$activeItem !== 'media' && $activeItem !== 'all'}
 		>
 			<Spotify data={data.props.spotifyData} />
 		</div>
