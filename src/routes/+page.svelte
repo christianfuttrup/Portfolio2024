@@ -61,8 +61,12 @@
 		>
 			<Spotify data={data.props.spotifyData} />
 		</div>
-		<div class="col-span-2 row-start-2 rounded-[32px] bg-white p-8">
-			<Github data={data.props.commitData} />
+		<div
+			class="col-span-2 row-start-2 rounded-[32px] bg-white p-8"
+			class:shadow-md={$activeItem === 'projects'}
+			class:opacity-30={$activeItem !== 'projects' && $activeItem !== 'all'}
+		>
+			<Github data={data.props.githubData} />
 		</div>
 		<div class="col-span-2 col-start-3 row-start-3 rounded-[32px] bg-white p-8">6</div>
 		<div class="col-start-1 row-span-2 row-start-3 rounded-[32px] bg-white p-8">7</div>

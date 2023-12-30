@@ -1,7 +1,6 @@
 <script lang="ts">
-	import type { SpotifyData, SpotifyResponse } from '$lib/types/spotify';
+	import type { SpotifyData } from '$lib/types/spotify';
 
-	// export let track: string;
 	export let data: SpotifyData;
 </script>
 
@@ -35,7 +34,7 @@
 			{:else if data.is_playing === false}
 				<div class="flex items-center gap-2 text-orange">
 					<i class="fa-solid fa-pause"> </i>
-					<span class="font-bold">Music paused:</span>
+					<span class="font-bold">data paused:</span>
 				</div>
 
 				{#if data.item.name}
