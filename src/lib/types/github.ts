@@ -104,3 +104,8 @@ interface GitHubUser {
 	type: string;
 	site_admin: boolean;
 }
+
+export interface GitHubResponse {
+	profile: GitHubData;
+	commit: GitHubCommit;
+}
