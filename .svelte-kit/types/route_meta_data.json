@@ -4,6 +4,9 @@
 		"src/routes/+layout.ts",
 		"src/routes/+layout.ts"
 	],
+	"/api/github": [
+		"src/routes/api/github/+server.ts"
+	],
 	"/api/spotify": [
 		"src/routes/api/spotify/+server.ts"
 	],
