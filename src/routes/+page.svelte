@@ -9,6 +9,7 @@
 	import type { PageData } from './$types';
 	import type { SpotifyData } from '$lib/types/spotify';
 	import Timeline from '$lib/widgets/Timeline.svelte';
+	import DarkMode from '$lib/widgets/DarkMode.svelte';
 
 	export let data: PageData;
 
@@ -66,11 +67,13 @@
 			class:shadow-md={$activeItem === 'projects'}
 			class:opacity-30={$activeItem !== 'projects' && $activeItem !== 'all'}
 		>
-			<Github data={data.props.githubData} />
+			<Github data={data.props.commit.data} />
 		</div>
 		<div class="col-span-2 col-start-3 row-start-3 rounded-[32px] bg-white p-8">6</div>
 		<div class="col-start-1 row-span-2 row-start-3 rounded-[32px] bg-white p-8">7</div>
-		<div class="relative col-start-2 row-start-3 rounded-[32px] bg-white p-8">x</div>
+		<div class="relative col-start-2 row-start-3 rounded-[32px] bg-white p-8">
+			<DarkMode />
+		</div>
 		<div class="col-start-2 row-start-4 rounded-[32px] bg-white p-8">9</div>
 		<div class="col-start-3 row-start-4 rounded-[32px] bg-white p-8">10</div>
 		<div
