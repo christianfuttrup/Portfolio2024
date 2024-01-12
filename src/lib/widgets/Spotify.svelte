@@ -11,9 +11,9 @@
 		</div>
 		{#if data.item}
 			{#if data.is_playing}
-				<div class="flex items-center gap-2 text-[#1DB954]">
+				<div class="mb-2 flex items-center gap-2 text-[#1DB954]">
 					<i class="fa-solid fa-play fa-beat"> </i>
-					<span class="font-bold">Listening to:</span>
+					<p class=" text-xl font-bold">Listening to:</p>
 				</div>
 
 				{#if data.item.name}
