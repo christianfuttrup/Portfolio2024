@@ -3,7 +3,6 @@
 	import type { GitHubCommit } from '$lib/types/github';
 
 	export let data: GitHubCommit;
-	console.log('🚀 ~ data: -------------------------------------', data.payload);
 </script>
 
 <div class="flex h-full flex-col text-slate-800">
@@ -37,7 +36,7 @@
 					<a
 						class="hover:underline"
 						target="_blank"
-						href="https://github.com/{data.repo}/commit/{data.payload.commits[0].sha}"
+						href="https://github.com/{data.repo.name}/commit/{data.payload.commits[0].sha}"
 						>{data.payload.commits[0].message}</a
 					>
 				</p>

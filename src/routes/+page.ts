@@ -15,15 +15,10 @@ export const load: PageLoad = (async ({ fetch }) => {
 	}
 
 	spotifyData = await spotifyResponse.json();
-	const commit: { data: GitHubCommit } = await githubResponse.json();
-
-	console.log("🚀 ~ constload:PageLoad= ~ githubData:", commit.data)
-
-	
-	
+	const commit: { data: GitHubCommit } = await githubResponse.json();	
 
 	return {
-		props: {
+		props: { 
 			spotifyData,
 			commit
 		}
