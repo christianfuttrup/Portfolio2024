@@ -30,13 +30,11 @@
 	});
 </script>
 
-<div class="flex gap-5">
-	<!-- 
-		TODO: Add functionality to when you click on a card it folds out and shows more details
-		This could be the spotify card showing the album cover and the github card showing the latest commit
-		This can be done with position absolute and placing it in the center of the page
-	-->
+<svelte:head>
+	<title>Christian Futtrup</title>
+</svelte:head>
 
+<div class="flex gap-5">
 	<div class="container mx-auto grid gap-4 lg:grid-cols-4 lg:grid-rows-5">
 		<div
 			class="'profile' )} col-span-2 rounded-[32px] border border-blue-100 bg-blue-50
