@@ -1,5 +1,5 @@
 // @ts-nocheck
-import type { GitHubResponse } from '$lib/types/github';
+import type { GitHubCommit } from '$lib/types/github';
 import type { SpotifyData } from '$lib/types/spotify';
 import type { PageLoad } from './$types';
 
@@ -9,7 +9,6 @@ export const load = (async ({ fetch }) => {
 	const githubResponse = await fetch('/api/github');
 
 	let spotifyData: SpotifyData = {} as SpotifyData;
-	let githubData: GitHubResponse = {} as GitHubResponse;
 
 	if (!spotifyResponse.ok) {
 		console.error('Failed to fetch data from Spotify:', await spotifyResponse.text());
@@ -17,18 +16,17 @@ export const load = (async ({ fetch }) => {
 	}
 
 	spotifyData = await spotifyResponse.json();
-	githubData = await githubResponse.json();
+	const commit: { data: GitHubCommit } = await githubResponse.json();
+
+	console.log("🚀 ~ constload:PageLoad= ~ githubData:", commit.data)
+
+	
+	
 
 	return {
 		props: {
 			spotifyData,
-			githubData,
-			commitData: {
-				sha: githubData.commit.sha,
-				commit: githubData.commit,
-				committer: githubData.commit.committer,
-				repository: githubData.profile.repo
-			}
+			commit
 		}
 	};
 }) satisfies PageLoad;
