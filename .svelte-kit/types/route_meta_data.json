@@ -7,6 +7,9 @@
 	"/api/github": [
 		"src/routes/api/github/+server.ts"
 	],
+	"/api/posts": [
+		"src/routes/api/posts/+server.ts"
+	],
 	"/api/spotify": [
 		"src/routes/api/spotify/+server.ts"
 	],
@@ -15,7 +18,7 @@
 		"src/routes/+layout.ts"
 	],
 	"/blog/[slug]": [
-		"src/routes/+layout.ts",
+		"src/routes/blog/[slug]/+page.ts",
 		"src/routes/+layout.ts"
 	],
 	"/experience": [
