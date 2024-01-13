@@ -14,6 +14,10 @@
 		"src/routes/blog/+page.ts",
 		"src/routes/+layout.ts"
 	],
+	"/blog/[slug]": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
 	"/experience": [
 		"src/routes/experience/+page.ts",
 		"src/routes/+layout.ts"
