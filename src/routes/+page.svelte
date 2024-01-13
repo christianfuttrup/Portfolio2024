@@ -10,6 +10,7 @@
 	import type { SpotifyData } from '$lib/types/spotify';
 	import Timeline from '$lib/widgets/Timeline.svelte';
 	import DarkMode from '$lib/widgets/DarkMode.svelte';
+	import Navigation from '$lib/components/Navigation.svelte';
 
 	export let data: PageData;
 
@@ -34,8 +35,12 @@
 	<title>Christian Futtrup</title>
 </svelte:head>
 
+<Navigation />
+
+<a href="blog" class="absolute right-0 top-0 mr-5 mt-5 text-gray-500 hover:text-gray-700"> Blog</a>
+
 <div class="flex gap-5">
-	<div class="container mx-auto grid gap-4 lg:grid-cols-4 lg:grid-rows-5">
+	<div class="container mx-auto grid gap-4 lg:grid-cols-4 lg:grid-rows-2">
 		<div
 			class="'profile' )} col-span-2 rounded-[32px] border border-blue-100 bg-blue-50
 				p-12
@@ -67,7 +72,7 @@
 		>
 			<Github data={data.props.commit.data} />
 		</div>
-		<div class="col-span-2 col-start-3 row-start-3 rounded-[32px] bg-white p-8">6</div>
+		<!-- <div class="col-span-2 col-start-3 row-start-3 rounded-[32px] bg-white p-8">6</div>
 		<div class="col-start-1 row-span-2 row-start-3 rounded-[32px] bg-white p-8">7</div>
 		<div class="relative col-start-2 row-start-3 rounded-[32px] bg-white p-8">
 			<DarkMode />
@@ -77,7 +82,6 @@
 		<div
 			class="col-start-4 row-start-4 rounded-[32px] bg-white bg-[url('/japan_trip.png')] bg-cover bg-center bg-no-repeat p-8"
 		>
-			<!-- plane emoji -->
-		</div>
+		</div> -->
 	</div>
 </div>

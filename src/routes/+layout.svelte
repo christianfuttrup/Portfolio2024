@@ -8,8 +8,6 @@
 	export let data: PageData;
 </script>
 
-<Navigation />
-
 <PageTransition urlKey={data.url}>
 	<main class="mx-auto py-5">
 		<slot />
